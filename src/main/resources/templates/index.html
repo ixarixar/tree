@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<style>
+	a, A:link, a:visited, a:active, A:hover
+		{color: #000000; text-decoration: none; font-family: Tahoma, Verdana; font-size: 12px}
+</style>
+
+<body>
+<script language="JavaScript" src="/tree/tree.js" charset="UTF-8"></script>
+<script language="JavaScript" src="/tree/tree_tpl.js" charset="UTF-8"></script>
+<script language="JavaScript" src="/tree_items.js" charset="UTF-8"></script>
+<script>
+		var TREE_TPL = {
+			'target'  : 'frameset',	// name of the frame links will be opened in other possible values are: _blank, _parent, _search, _self and _top
+			'icon_e'  : '/tree/icons/empty.gif', // empty image
+			'icon_l'  : '/tree/icons/line.gif',  // vertical line
+			'icon_32' : '/tree/icons/base.gif',   // root leaf icon normal
+			'icon_36' : '/tree/icons/base.gif',   // root leaf icon selected
+			'icon_48' : '/tree/icons/base.gif',   // root icon normal
+			'icon_52' : '/tree/icons/base.gif',   // root icon selected
+			'icon_56' : '/tree/icons/base.gif',   // root icon opened
+			'icon_60' : '/tree/icons/base.gif',   // root icon selected
+			'icon_16' : '/tree/icons/folder.gif', // node icon normal
+			'icon_20' : '/tree/icons/folderopen.gif', // node icon selected
+			'icon_24' : '/tree/icons/folderopen.gif', // node icon opened
+			'icon_28' : '/tree/icons/folderopen.gif', // node icon selected opened
+			'icon_0'  : '/tree/icons/page.gif', // leaf icon normal
+			'icon_4'  : '/tree/icons/page.gif', // leaf icon selected
+			'icon_2'  : '/tree/icons/joinbottom.gif', // junction for leaf
+			'icon_3'  : '/tree/icons/join.gif',       // junction for last leaf
+			'icon_18' : '/tree/icons/plusbottom.gif', // junction for closed node
+			'icon_19' : '/tree/icons/plus.gif',       // junctioin for last closed node
+			'icon_26' : '/tree/icons/minusbottom.gif',// junction for opened node
+			'icon_27' : '/tree/icons/minus.gif'       // junctioin for last opended node
+			};
+	</script>
+
+
+
+<div style="display:block; width:100%; height:100%; min-height:100%;">
+    <!-- MAIN LEFT -->
+    <div style="display:block; float:left; width:49%; background: #FEFEFE;">
+
+        <p>hello</p>
+        <p><a href="/actuator/health">/actuator/health</a></p>
+        <p><a href="/actuator/env">/actuator/env</a></p>
+
+        <div>
+
+        </div>
+
+
+    </div>
+    <!-- MAIN RIGHT -->
+    <div style="display:block; float:left; width:50%; background: #FAFAFA;">
+            <table>
+
+
+                <tr th:each="prod: ${findAll}">
+                    <td th:text="${prod.id}">s</td>
+                    <td th:text="${prod.count}"></td>
+                    <td th:text="${prod.enabled}"></td>
+                    <td th:text="${prod.name}"></td>
+                    <td th:text="${prod.root_id}"></td>
+                </tr>
+
+            </table>
+
+
+        </div>
+
+        <div id="treeFr">
+            <script>
+					var tree_ = new tree(TREE_ITEMS, TREE_TPL);
+				</script>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
