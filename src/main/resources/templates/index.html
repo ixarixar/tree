@@ -36,6 +36,14 @@
 			'icon_26' : '/tree/icons/minusbottom.gif',// junction for opened node
 			'icon_27' : '/tree/icons/minus.gif'       // junctioin for last opended node
 			};
+
+
+
+    function removeElement(el){
+        alert("'" + el + "'");
+    };
+
+
 	</script>
 
 
@@ -58,13 +66,16 @@
     <div style="display:block; float:left; width:50%; background: #FAFAFA;">
             <table>
 
-
                 <tr th:each="prod: ${findAll}">
-                    <td th:text="${prod.id}">s</td>
+
+                    <td th:text="${prod.id}"> <input type="hidden" id="yourId" th:value="${id}"/> </td>
                     <td th:text="${prod.count}"></td>
                     <td th:text="${prod.enabled}"></td>
                     <td th:text="${prod.name}"></td>
                     <td th:text="${prod.root_id}"></td>
+
+                    <td > <button th:attr="onclick=|removeElement('${prod.id}')|">click</button> </td>
+
                 </tr>
 
             </table>
@@ -79,14 +90,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 
